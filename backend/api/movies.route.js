@@ -1,5 +1,6 @@
 import express from 'express';
-const router = express.Router() // get access to express router 
-router.route('/').get((req,res) => res.send('hello world')) 
+import MoviesController from './movies.controller.js';
+const router = express.Router();
+router.route('/').get(MoviesController.apiGetMovies);
 
 export default router
