@@ -31,15 +31,18 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" /> 
         <Navbar.Collapse id="basic-navbar-nav"> 
           <Nav className="mr-auto">
-            <Nav.Link> 
-              <Link to={"/movies"}>Movies</Link>
-            </Nav.Link>
-            <Nav.Link> 
-              { user ? ( <a onClick={logout}>Logout User</a> ) : ( <Link to={"/login"}>Login</Link> )} 
-            </Nav.Link>
-          </Nav> 
+            <Link to={"/movies"}>Movies</Link>&nbsp;
+            { user ? ( <a onClick={logout}>Logout User</a> ) : ( <Link to={"/login"}>Login</Link> )} 
+          </Nav>
         </Navbar.Collapse> 
       </Navbar>
+
+      <Switch> 
+        <Route exact path={["/", "/movies"]} component={MoviesList} />
+        <Route path="/movies/:id/review" render={(props)=> <AddReview {...props} user={user} /> } />
+        <Route path="/movies/:id/" render={(props)=> <Movie {...props} user={user} /> } /> 
+        <Route path="/login" render={(props)=> <Login {...props} login={login} /> } />
+      </Switch>
     </div> 
   ); 
 } 
