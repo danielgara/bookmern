@@ -1,0 +1,8 @@
+ctrl+atl+,
+{
+    "command": {
+    "action": "wt",
+    "commandline": "new-tab -d c://wamp64/www/books/bookmern/backend/ cmd /k npm start; split-pane -d c://wamp64/www/books/bookmern/frontend/ cmd /k npm start"
+    },
+    "keys": "ctrl+alt+r"
+},
