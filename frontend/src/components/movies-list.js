@@ -22,8 +22,7 @@ const MoviesList = props => {
   },[]) 
 
   const retrieveMovies = () =>{ 
-    MovieDataService.getAll().then(response =>{ 
-      //console.log(response.data);
+    MovieDataService.getAll().then(response =>{
       setMovies(response.data.movies); 
     }).catch( e =>{
       console.log(e);
@@ -32,7 +31,6 @@ const MoviesList = props => {
     
   const retrieveRatings = () =>{ 
     MovieDataService.getRatings().then(response =>{
-      //console.log(response.data);
       setRatings(["All Ratings"].concat(response.data)) ;
     }).catch( e =>{ 
       console.log(e);
@@ -50,8 +48,7 @@ const MoviesList = props => {
   }
 
   const find =(query, by) =>{ 
-    MovieDataService.find(query,by).then(response =>{ 
-      //console.log(response.data);
+    MovieDataService.find(query,by).then(response =>{
       setMovies(response.data.movies);
     }).catch(e =>{ 
       console.log(e);
